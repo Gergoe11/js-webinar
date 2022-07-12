@@ -21,22 +21,26 @@
  
 module.exports = class Layout extends Element{
 
-        constructor(locator, name, url) {
-            super(locator, name, url);
+        constructor(name, url, locator) {
+            super(name, locator);
             
-            
-            this.name = 'Home';
-            this.url = "http://epam.com";
+                      
+            this.url = url;;
+
 
             this.parent = null;
             this.children = {};
         }
 
-        addChildren(child){
-            if(this.children.hasOwnProperty(child.name)){
-                throw new Error(child.name + " is already added!");
-            }
-            this.children[child.name] = child;
+        
+        setParent(){
+            throw new Error("Cannot set parent")
+        }
+
+
+
+        load(){
+            return this.url;
         }
         
 }

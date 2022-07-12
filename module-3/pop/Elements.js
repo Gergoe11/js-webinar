@@ -16,6 +16,7 @@
  * Use Protractor API to retrieve elements
  * @see {@link https://www.protractortest.org/#/api?view=ElementArrayFinder}
  */
+const { element } = require("../test/mock/ElementFinder");
 const Element = require("./Element");
 
 module.exports = class Elements extends Element { 
@@ -31,8 +32,12 @@ module.exports = class Elements extends Element {
     }
 
     all() {
-        ;
+        return element.all(this.locator);
     }   
+
+    get(n){
+        return element.all(this.locator).get(n);
+    }
 }
 
 

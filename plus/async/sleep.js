@@ -12,10 +12,10 @@
 module.exports = async function sleep(sec) {
     return new Promise((resolve, reject) => {
         if(typeof sec === "number" ){
-    // let sec = 10;        
-            setTimeout (resolve, 1000*sec) 
+        
+            setTimeout(resolve, Math.min(sec*1000,10000));
         } else {
-            reject(new Error("wrong input"))
+            reject(new Error("wrong input"));
         }
 
         
@@ -24,14 +24,3 @@ module.exports = async function sleep(sec) {
 
 
 
-/*
- return new Promise((resolve, reject) => {
-        if(typeof sec !== "number" ){
-           reject throw new Error()
-        }
-        else if(sec !== 10){
-            throw new Error()
-        }
-
-        setTimeout(() => resolve(), 1000 *sec )
-        */

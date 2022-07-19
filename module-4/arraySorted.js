@@ -49,23 +49,5 @@ module.exports = arraySorted;
 
 
 
-/*
-  let ignoreArray = (ignore || '').split('');
-       let whitespaces = [' ', '\n', '\t'];
-       items = items.map(item => {
-        let splittedItem = item.toString().split('');
-        return splittedItem.filter(char => !ignoreArray.includes(char) && !whitespaces.includes(char)).join('');
-       });
 
-       for(let i = 0; i < items.length -1; i++){
-        let a = items[i].toString().toLowerCase();
-        let b = items[i+1].toString().toLowerCase();
-
-        if (a>b){
-            return false;
-        }
-       }
-       return true;
-
-*/
 

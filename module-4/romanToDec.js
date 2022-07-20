@@ -21,9 +21,14 @@ function romanToDec (roman){
         return console.warn("Not a string")
     }
 
-    if(roman.includes("q")){
-        console.warn("Not a valid roman number")
+   
+    for(let i in roman){
+        if(roman[i] == "q"){
+            return false;
+        }
+            
     }
+     
     
     let array = roman.toUpperCase()
                     .split('');
@@ -33,14 +38,14 @@ function romanToDec (roman){
     let next;
     let nextValue;
 
-         
+
     for (let i = 0; i < array.length; i++){
         current = array[i];
         currentValue=converter[current]
 
         next = array[i+1];
         nextValue = converter[next];
-
+        
         
         if(currentValue<nextValue){
             result = result - (currentValue);
@@ -51,20 +56,16 @@ function romanToDec (roman){
         } 
 
     }
-    
-   
-    
-    return result;
-    
+       
+      
+        return result;
                
-    
-}
-    
         
-    
+     
+}
 
-romanToDec("md")
-
+console.log(romanToDec("mdc"))
 module.exports = romanToDec;
 
 
+// !== "m"||"d"||"c"||"l"||"x"||"v"||"i"

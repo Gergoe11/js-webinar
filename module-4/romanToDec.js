@@ -19,16 +19,9 @@ function romanToDec (roman){
         
     if(typeof roman !== "string"){
         return console.warn("Not a string")
-    }
+    } 
 
-   
-    for(let i in roman){
-        if(roman[i] == "q"){
-            return false;
-        }
-            
-    }
-     
+          
     
     let array = roman.toUpperCase()
                     .split('');
@@ -58,14 +51,36 @@ function romanToDec (roman){
     }
        
       
+    if(isNaN(result)){
+        console.warn("Not a valid roman number");
+        return false;
+    } else {
         return result;
+    }
+
+    }
                
         
      
-}
 
-console.log(romanToDec("mdc"))
+
+console.log(romanToDec("qdc"))
 module.exports = romanToDec;
 
 
 // !== "m"||"d"||"c"||"l"||"x"||"v"||"i"
+/*
+for(let i in roman){
+            if(roman[i] == "q"){
+        return false;
+
+
+        else if(roman == NaN){
+        for(let i in roman){
+            if(roman[i] == "q"){
+        return false;
+    }
+        
+        }
+    }
+        */

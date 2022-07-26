@@ -1,5 +1,8 @@
+const { it } = require('mocha');
 const calc = require('../calc');
 const expect = require('chai').expect;
+const assert = require('chai').assert;
+
 
 describe.only('calc', () => {
     /*
@@ -17,5 +20,109 @@ describe.only('calc', () => {
      *     .times(6).v // 24
      */
     // TODO: write test cases to test the calculator
+   // it("should have proper value");
+
+    
+    describe("add", () => {
+        it("should exist", () => {
+            const c = calc(42)
+            expect(c.add).not.to.be.undefined
+        });
+        
+        it("should be able to add number to the current value", () => {
+            const c = calc(10);
+            const result = c.add(5).v;
+
+            expect(result).to.equal(15);
+
+        });
+
+        it("should not be NaN", () => {
+            const c = calc(5);
+            const result = c.add(5).v;
+
+            expect(result).to.not.be.NaN;
+        });
+
+        it("param should equal given number", () => {
+            const c = calc(5);
+            const v = this.v
+            assert.equal(calc(5), 5, 'these numbers are equal')
+        });
+
+        
+    });
+   
+
+    describe("minus", () => {
+        it("should exist", () => {
+            const c = calc(4);
+            expect(c.minus).not.to.be.undefined;
+        });
+
+        it("should be able to substract a number from the current value", () => {
+            const c = calc(10);
+            const result = c.minus(6).v;
+                     
+            expect(result).to.equal(4);
+
+        });
+    });
+    
+    describe("modulo", () => {
+        it("should exist", () => {
+            const c = calc(4);
+
+            expect(c.modulo).not.to.be.undefined;
+        });
+
+        it("should find the remainder of the two numbers", () => {
+            const c = calc(12);
+            const result = c.modulo(2).v;
+
+            expect(result).to.equal(0);
+        });
+
+        it("should warn when remainder is not 0", () => {
+            const c = calc (4);
+            const result = c.modulo(3).v;
+
+            expect(result).to.equal(0)
+            if(result !== 0){
+                throw new Error("not an integer")
+                 }
+
+        });
+    })
+
+    describe("divide", () => {
+        it("should exist", () => {
+            const c = calc(42);
+          
+            expect(c.divide).not.to.be.undefined;
+        });
+
+        it("should be able to perform a valid division", () => {
+            const c = calc(10);
+            const result = c.divide(2).v;
+            
+            expect(result).to.equal(5);
+        });
+
+        it("should handle division by 0", () => {
+            //Given
+            const c = calc(42);
+            //When
+            // const result = c.divide(0).v;
+            //Then
+
+            // expect(true).to.be.true;
+           expect(() => c.divide(0)).to.throw("Division");
+           //expect(c.divide.bind(null,0)).to.throw("Division");
+        });
+        
+
+    });
+  
 
 });

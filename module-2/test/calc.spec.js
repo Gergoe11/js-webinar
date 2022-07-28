@@ -30,10 +30,10 @@ describe.only('calc', () => {
         });
         
         it("should be able to add number to the current value", () => {
-            const c = calc(10);
+            const c = calc(3);
             const result = c.add(5).v;
 
-            expect(result).to.equal(15);
+            expect(result).to.equal(8);
 
         });
 
@@ -68,6 +68,20 @@ describe.only('calc', () => {
 
         });
     });
+
+    describe("multiply", () => {
+        it("should exist", () => {
+            const c = calc(3);
+
+            expect(c.times).not.to.be.undefined;
+        });
+        it("should be able to perform a valid multiplication", () => {
+            const c = calc(2);
+            const result = c.times(10).v;
+
+            expect(result).to.equal(20);
+        });
+    });
     
     describe("modulo", () => {
         it("should exist", () => {
@@ -85,15 +99,40 @@ describe.only('calc', () => {
 
         it("should warn when remainder is not 0", () => {
             const c = calc (4);
-            const result = c.modulo(3).v;
+            const result = c.modulo(2).v;
 
-            expect(result).to.equal(0)
+            
             if(result !== 0){
-                throw new Error("not an integer")
+                expect(console.warn.called).to.be.true("remainder is not 0")
+                
                  }
 
         });
-    })
+    });
+
+    describe("sqrt", () => {
+        it("should exist", () => {
+            const c = calc(4);
+
+            expect(c.sqrt).not.to.be.undefined;
+        });
+        
+        it("should return the square root of a number", () => {
+            const c = calc(4);
+            const result = c.sqrt().v
+
+            expect(result).to.equal(2);
+        });
+    });
+
+    describe("multiple calculations", () => {
+        it("should be able to perform multiple calculations", () => {
+            const c = calc(1);
+
+            const result = c.add(4).minus(3).times(6).v;
+            expect(result).to.be.equal(12);
+        });
+    });
 
     describe("divide", () => {
         it("should exist", () => {

@@ -97,17 +97,7 @@ describe.only('calc', () => {
             expect(result).to.equal(0);
         });
 
-        it("should warn when remainder is not 0", () => {
-            const c = calc (4);
-            const result = c.modulo(2).v;
-
-            
-            if(result !== 0){
-                expect(console.warn.called).to.be.true("remainder is not 0")
-                
-                 }
-
-        });
+       
     });
 
     describe("sqrt", () => {
@@ -123,6 +113,15 @@ describe.only('calc', () => {
 
             expect(result).to.equal(2);
         });
+
+        it("should handle a negative value", () => {
+            const c = calc(-3);
+            const result = () => {
+                throw new TypeError;
+            }
+
+            expect(result).to.throw()
+        })
     });
 
     describe("multiple calculations", () => {
@@ -132,6 +131,7 @@ describe.only('calc', () => {
             const result = c.add(4).minus(3).times(6).v;
             expect(result).to.be.equal(12);
         });
+
     });
 
     describe("divide", () => {
@@ -149,15 +149,10 @@ describe.only('calc', () => {
         });
 
         it("should handle division by 0", () => {
-            //Given
             const c = calc(42);
-            //When
-            // const result = c.divide(0).v;
-            //Then
-
-            // expect(true).to.be.true;
+                 
            expect(() => c.divide(0)).to.throw("Division");
-           //expect(c.divide.bind(null,0)).to.throw("Division");
+           
         });
         
 

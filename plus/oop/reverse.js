@@ -8,40 +8,25 @@
 
 const { __esModule } = require("cucumber");
 
-let obj = {
-    a: 12,
-    b: 23,
-    c:12
-    
 
-}
+let obj = { "a": "12", "b": "32", "c": "12"}
 
-function reverse(o){
-
-    if(typeof o !== "object"){
-       throw new Error("Not an object!")
-    } 
-
-   // let newO = Object.assign({},o);
-   //let revO = Object.keys(o).reverse()
-   
-   let newO = {};
-
-    
-     for(let key in o){
-         newO[o[key]] = key;
-     }
-    
-     
-     return console.log(newO);
-
-          
+function reverse(o) {
+    if (typeof o !== "object") {
+        throw new Error("Not an object!")
     }
 
+        let newO = {};
 
+
+        for (let key in o) {
+            newO[o[key]] = key;
+        }
+
+
+        return console.log(newO);
+    
+}
 reverse(obj);
-
-
-
 
 module.exports = reverse;

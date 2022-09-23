@@ -3,6 +3,7 @@ const ElementArrayFinder = require('../mock/ElementArrayFinder');
 const Elements = require('../../pop/Elements');
 const expect = require('chai').expect;
 
+
 describe('Elements Class', () => {
     beforeEach(() => {
         global.element = ElementFinder.element;

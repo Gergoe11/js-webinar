@@ -4,6 +4,7 @@ const Layout = require('../../pop/Layout');
 const Element = require('../../pop/Element');
 const expect = require('chai').expect;
 
+
 describe('Layout Class', () => {
     beforeEach(() => {
         global.element = ElementFinder.element;
